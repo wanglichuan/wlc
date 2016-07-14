@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link href="/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+<script type="text/javascript" src="/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/jquery/jquery.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+
+
+<title>界面主页</title>
+</head>
+<body>
+<h1>员工列表</h1>
+<table class="table table-bordered table-hover table-striped table-condensed">
+	<thead>
+	<tr>
+		<td>id</td>
+		<td>姓名</td>
+		<td>密码</td>
+		<td>电话</td>
+		<td>邮箱</td>
+	</tr>
+	</thead>
+	<tbody>
+	<#list user as u>
+	<tr>
+		<td>${u.id}</td>
+		<td>${u.name}</td>
+		<td>${u.password}</td>
+		<td>${u.phone}</td>
+		<td>${u.email}</td>
+	</tr>
+	</#list>
+	</tbody>
+</table>
+</body>
+</html>

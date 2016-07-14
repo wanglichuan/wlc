@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link href="/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+<script type="text/javascript" src="/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/jquery/jquery.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+
+
+<title>界面主页--分页</title>
+</head>
+<body>
+<h1>员工列表</h1>
+<table class="table table-bordered table-hover table-striped table-condensed">
+	<thead>
+	<tr>
+		<th>id</th>
+		<th>姓名</th>
+		<th>密码</th>
+		<th>电话</th>
+		<th>邮箱</th>
+		<th>删除</th>
+		<th>修改</th>
+	</tr>
+	</thead>
+	<tbody>
+	<#list page.content as u>
+	<tr>
+		<th>${u.id}</th>
+		<th>${u.name}</th>
+		<th>${u.password}</th>
+		<th>${u.phone}</th>
+		<th>${u.email}</th>
+		<th>删除</th>
+		<th>修改</th>
+	</tr>
+	</#list>
+	 <tr>
+			<td><a href="/user/page?pageNo=0">首页</a></td>
+			 <td>共${page.totalPages}页</td>
+			<td> 当前第${page.number+1}页</td>
+			<#if page.number gte 1 ><td><a href="/user/page?pageNo=${page.number-1}">上一页</a></td></#if>
+			<#if page.number lt (page.totalPages-1)><td><a href="/user/page?pageNo=${page.number+1}">下一页</a></td></#if>
+			<td><a href="/user/page?pageNo=${page.totalPages-1}">末页</a></td>
+			</tr>
+	</tbody>
+</table>
+</body>
+</html>
